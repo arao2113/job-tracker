@@ -17,7 +17,7 @@ const JobsSchema = new mongoose.Schema({
     type: String,
     required: [true, "Is the job remote?"],
     unique: false,
-    maxlength: [5, "Remote position cannot be more than 5 characters"],
+    maxlength: [15, "Remote position cannot be more than 5 characters"],
   },
   salary: {
     type: Number,

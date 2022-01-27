@@ -1,12 +1,13 @@
-import Link from "next/link";
 import fetch from "isomorphic-fetch";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Index = ({ jobs }) => {
   return (
     <Container>
-      <Row className="mt-50">
+      <Row>
         <Col>
+          <h1>Welcome to Job Tracker.</h1>
           {jobs.map((job) => {
             return (
               <Card key={job._id}>
@@ -27,7 +28,7 @@ const Index = ({ jobs }) => {
 };
 
 Index.getInitialProps = async () => {
-  const res = await fetch("http://localhost:3000/api/jobs");
+  const res = await fetch("http://localhost:3000/api/jobs/");
   const { data } = await res.json();
 
   return { jobs: data };
