@@ -32,3 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# mongoDB auth
+next.config.js

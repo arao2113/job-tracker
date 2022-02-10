@@ -1,6 +1,7 @@
 import fetch from "isomorphic-fetch";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Link from "next/link";
 
 const Index = ({ jobs }) => {
   return (
@@ -8,6 +9,7 @@ const Index = ({ jobs }) => {
       <Row>
         <Col>
           <h1>Welcome to Job Tracker.</h1>
+          <h2>Total Jobs Applied: {jobs.length}</h2>
           {jobs.map((job) => {
             return (
               <Card key={job._id}>
@@ -15,8 +17,12 @@ const Index = ({ jobs }) => {
                 <Card.Body>
                   <Card.Title>{job.company}</Card.Title>
                   <Card.Text>{job.note}</Card.Text>
-                  <Button>View</Button>
-                  <Button variant="warning">Edit</Button>
+                  <Link href={`/${job._id}`}>
+                    <Button>View</Button>
+                  </Link>
+                  <Link href={`/${job._id}/edit`}>
+                    <Button variant="warning">Edit</Button>
+                  </Link>
                 </Card.Body>
               </Card>
             );
