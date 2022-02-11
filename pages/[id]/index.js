@@ -22,9 +22,12 @@ const Job = ({ job }) => {
     const jobId = router.query.id;
 
     try {
-      const deleted = await fetch(`http://localhost:3000/api/jobs/${jobId}`, {
-        method: "DELETE",
-      });
+      const deleted = await fetch(
+        `https://job-tracker-virid.vercel.app/api/jobs/${jobId}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       router.push("/");
     } catch (error) {
@@ -69,7 +72,9 @@ const Job = ({ job }) => {
 };
 
 Job.getInitialProps = async ({ query: { id } }) => {
-  const res = await fetch(`http://localhost:3000/api/jobs/${id}`);
+  const res = await fetch(
+    `https://job-tracker-virid.vercel.app/api/jobs/${id}`
+  );
   const { data } = await res.json();
 
   return { job: data };

@@ -45,7 +45,7 @@ const EditJob = ({ job }) => {
   const updateJob = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/jobs/${router.query.id}`,
+        `https://job-tracker-virid.vercel.app/api/jobs/${router.query.id}`,
         {
           method: "PUT",
           headers: {
@@ -177,7 +177,9 @@ const EditJob = ({ job }) => {
 };
 
 EditJob.getInitialProps = async ({ query: { id } }) => {
-  const res = await fetch(`http://localhost:3000/api/jobs/${id}`);
+  const res = await fetch(
+    `https://job-tracker-virid.vercel.app/api/jobs/${id}`
+  );
   const { data } = await res.json();
 
   return { job: data };
