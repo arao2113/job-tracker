@@ -34,10 +34,14 @@ const Index = ({ jobs }) => {
 };
 
 Index.getInitialProps = async () => {
-  const res = await fetch("http://localhost:3000/api/jobs/");
+  const res = await fetch("https://job-tracker-virid.vercel.app/api/jobs");
   const { data } = await res.json();
 
   return { jobs: data };
 };
 
 export default Index;
+
+//https://job-tracker-virid.vercel.app/
+
+//http://localhost:3000/api/jobs/
