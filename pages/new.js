@@ -44,7 +44,7 @@ const NewJob = () => {
 
   const createJob = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/jobs", {
+      const res = await fetch("https://job-tracker-virid.vercel.app/api/jobs", {
         method: "POST",
         headers: {
           Accept: "application:json",
